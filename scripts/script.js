@@ -6,6 +6,7 @@ let mission;
 let period;
 
 period = 10;
+mission = 'Изучить Git';
 alert(period);
 
 console.log(period);
