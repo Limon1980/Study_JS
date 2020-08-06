@@ -1,3 +1,4 @@
+// Создадим переменные к 1 уроку
 let money;
 let income;
 let addExpenses;
