@@ -9,4 +9,4 @@ period = 10;
 alert(period);
 
 console.log(period);
-console.log('Hello World!');
+console.log("Hello World!");
