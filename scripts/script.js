@@ -1,15 +1,12 @@
-// Создадим переменные к 1 уроку
-let money;
-let income;
-let addExpenses;
-let deposit;
-let mission;
-let period;
-// Присвоим переменным значения
-period = 10;
-mission = 'Изучить Git';
-alert(period);
-// Выведем в консоль
+// Присвоим переменным значения для урока 2
+let money = 99000;
+let income = 'фриланс';
+let addExpenses = 'жкх, интернет, машина';
+let deposit = true;
+let mission = 6e6;
+let period = 12;
+
+
 console.log(period);
 console.log("Hello World!");
 console.log("Я закончил первый урок!");
