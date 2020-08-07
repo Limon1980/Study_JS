@@ -12,3 +12,4 @@ alert(period);
 // Выведем в консоль
 console.log(period);
 console.log("Hello World!");
+console.log("Я закончил первый урок!");
