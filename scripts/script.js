@@ -9,6 +9,7 @@ let period = 12;
 let budgetDay = money / 30;
 
 
+
 console.log(typeof money);
 console.log(typeof income);
 console.log(typeof deposit);
