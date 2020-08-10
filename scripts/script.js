@@ -1,4 +1,4 @@
-'use strickt';
+'use strict';
 // Присвоим переменным значения для урока 2
 let money = 99000;
 let income = 'фриланс';
