@@ -1,14 +1,19 @@
-// Создадим переменные к 1 уроку
-let money;
-let income;
-let addExpenses;
-let deposit;
-let mission;
-let period;
-// Присвоим переменным значения
-period = 10;
-mission = 'Изучить Git';
-alert(period);
-// Выведем в консоль
-console.log(period);
-console.log("Hello World!");
+// Присвоим переменным значения для урока 2
+let money = 99000;
+let income = 'фриланс';
+let addExpenses = 'жкх, интернет, машина';
+let deposit = true;
+let mission = 6e6;
+let period = 12;
+let budgetDay = money / 30;
+
+
+console.log(typeof money);
+console.log(typeof income);
+console.log(typeof deposit);
+
+console.log('addExpenses: ', addExpenses.length);
+console.log('Период равен ' + period + ' месяцев');
+console.log('Цель заработать ' + mission + ' рублей');
+console.log((addExpenses.toLocaleUpperCase()).split(','));
+console.log('budgetDay: ', budgetDay);
