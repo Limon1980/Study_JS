@@ -17,7 +17,7 @@ let budgetMonth;
 // Запрос месячного дохода с проверкой на число
 let start = function () {
   do {
-    money = prompt('Ваш месячный доход?', 60000);
+    money = parseFloat(prompt('Ваш месячный доход?', 60000));
   } while (!isNumber(money));
 };
 // Функция определения типа данных
@@ -35,20 +35,36 @@ addExpenses = prompt(
 );
 deposit = confirm('Есть ли у вас депозит в банке?');
 
-let expenses1 = prompt('Введите обязательную статью расходов?', 'жкх');
-let amount1 = +prompt('Во сколько это обойдется?', 6000);
-let expenses2 = prompt('Введите обязательную статью расходов?', 'машина');
-let amount2 = +prompt('Во сколько это обойдется?', 4000);
+let expenses = [];
 
 // Сумма обязательных расходов
-function getExpensesMonth(amount1, amount2) {
-  return amount1 + amount2;
-}
+let getExpensesMonth = function () {
+  let sum = 0;
+
+  for (let i = 0; i < 2; i++) {
+    expenses[i] = prompt(
+      'Введите обязательную статью расходов?',
+      'Расход' + i
+    ).toLocaleUpperCase();
+
+    let amount;
+    do {
+      amount = parseFloat(
+        prompt('Во сколько это обойдется ' + expenses[i] + ' ?', 6000)
+      );
+    } while (!isNumber(amount));
+    sum += amount;
+    expenses[i] += ' => ' + amount;
+  }
+  return sum;
+};
 
 // Функция возвращает Накопления за месяц (Доходы минус расходы)
 function getAccumulatedMonth(money, callback) {
   return money - callback;
 }
+// вызов функци сумма обязательных расходов и значение в переменную
+let expensesAmount = getExpensesMonth();
 
 // Подсчитывает за какой период будет достигнута цель
 function getTargetMonth(accumulatedMonth, mission) {
@@ -56,10 +72,7 @@ function getTargetMonth(accumulatedMonth, mission) {
 }
 
 // Накопления за месяц, вызов
-let accumulatedMonth = getAccumulatedMonth(
-  money,
-  getExpensesMonth(amount1, amount2)
-);
+let accumulatedMonth = getAccumulatedMonth(money, expensesAmount);
 
 period = getTargetMonth(accumulatedMonth, mission);
 budgetDay = Math.floor(accumulatedMonth / 30);
@@ -68,11 +81,16 @@ showTypeOf(money);
 showTypeOf(income);
 showTypeOf(deposit);
 
-console.log('расходы за месяц: ', getExpensesMonth(amount1, amount2));
-console.log(addExpenses.toLocaleUpperCase().split(','));
-console.log(
-  'Период достижения цели в ' + mission + ' руб равен ' + period + ' месяцев'
-);
+console.log('расходы за месяц: ', expensesAmount);
+console.log('Обязательные расходы:', expenses);
+console.log('Возможные расходы:', addExpenses.toLocaleUpperCase().split(','));
+if (period <= 0) {
+  console.log('Цель не будет достигнута');
+} else {
+  console.log(
+    'Период достижения цели в ' + mission + ' руб равен ' + period + ' месяцев'
+  );
+}
 console.log('Бюжет на месяц ' + accumulatedMonth);
 console.log('budgetDay: ', budgetDay);
 
