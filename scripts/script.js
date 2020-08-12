@@ -1,6 +1,11 @@
 'use strict';
+// проверка на число
+let isNumber = function (n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+};
+
 // Присвоим переменным значения для урока 2
-let money = 99000;
+let money;
 let income = 'фриланс';
 let addExpenses = 'жкх, интернет, машина';
 let deposit = true;
@@ -9,12 +14,21 @@ let period = 12;
 let budgetDay;
 let budgetMonth;
 
+// Запрос месячного дохода с проверкой на число
+let start = function () {
+  do {
+    money = prompt('Ваш месячный доход?', 60000);
+  } while (!isNumber(money));
+};
 // Функция определения типа данных
 function showTypeOf(data) {
   console.log(typeof data);
 }
 
-money = +prompt('Ваш месячный доход?', 60000);
+// money = +prompt('Ваш месячный доход?', 60000);
+// Запросим ваш месячный доход
+start();
+
 addExpenses = prompt(
   'Перечислите возможные расходы за рассчитываемый период через запятую?',
   'жкх, школа, машина'
