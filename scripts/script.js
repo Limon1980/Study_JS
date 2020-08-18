@@ -13,12 +13,13 @@ let money,
     } while (!isNumber(money));
   };
 
+
 // Запросим ваш месячный доход
 start();
 
 // Создадим объект appData
 let appData = {
-  income: {},
+  incom: {},
   addIncome: [],
   expenses: {},
   addExpenses: [],
