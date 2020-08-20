@@ -3,11 +3,6 @@
 // Используя только файл скрипта (html руками не трогать) выполнить такие действия:
 
 
-
-
-// Восстановить порядок глав во второй и пятой книге (внимательно инспектируйте индексы элементов, поможет dev tools)
-// в шестой книге добавить главу “Глава 8: За пределами ES6” и поставить её в правильное место
-
 const bookList = document.querySelectorAll('.book');
 const books = document.querySelector('.books');
 const adv = document.querySelector('.adv');
@@ -30,6 +25,7 @@ arrSort[3].querySelector('h2 a').textContent = 'Книга 3. this и Прото
 // Удалить рекламу со страницы
 adv.remove();
 
+// Восстановить порядок глав во второй и пятой книге (внимательно инспектируйте индексы элементов, поможет dev tools)
 const book2Sort = arrSort[2].querySelectorAll('li');
 
 book2Sort[3].after(book2Sort[6]);
@@ -43,11 +39,12 @@ book5Sort[9].after(book5Sort[3]);
 book5Sort[3].after(book5Sort[4]);
 book5Sort[8].before(book5Sort[5]);
 
+// в шестой книге добавить главу “Глава 8: За пределами ES6” и поставить её в правильное место
 let book6Sort = arrSort[6].querySelectorAll('li'),
 newLi6 = document.createElement('li');
 newLi6.textContent = 'Глава 8: За пределами ES6';
 book6Sort[8].after(newLi6);
 
-for(let i=0; i < book6Sort.length; i++){
-  console.log(i + ' ' + book6Sort[i].textContent );
-}
+// for(let i=0; i < book6Sort.length; i++){
+//   console.log(i + ' ' + book6Sort[i].textContent );
+// }
