@@ -103,7 +103,8 @@ class AppData {
       cEA.value = cEA.value.replace(/[^0-9]/, '');
     });
 
-    expensesItems[0].parentNode.insertBefore(cloneExpensesItem, expensesPlus);
+    // expensesItems[0].parentNode.insertBefore(cloneExpensesItem, expensesPlus);
+    expensesItems[0].parentNode.append(cloneExpensesItem, expensesPlus);
     expensesItems = document.querySelectorAll('.expenses-items');
 
     if (expensesItems.length === 3) {
@@ -128,7 +129,9 @@ class AppData {
       cIA.value = cIA.value.replace(/[^0-9]/, '');
     });
 
-    incomeItems[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
+    // incomeItems[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
+    incomeItems[0].parentNode.append(cloneIncomeItem, incomePlus);
+
     incomeItems = document.querySelectorAll('.income-items');
 
     if (incomeItems.length === 3) {
@@ -245,7 +248,7 @@ class AppData {
       depositAmount.style.display = 'inline-block';
       this.deposit = true;
       depositBank.addEventListener('change', this.changePercent);
-      console.log('check');
+      // console.log('check');
     } else {
       depositBank.style.display = 'none';
       depositAmount.style.display = 'none';
@@ -285,8 +288,9 @@ class AppData {
       incomeItems[0].querySelector('.income-title').value = '';
       incomeItems[0].querySelector('.income-amount').value = '';
       incomePlus.style.display = 'block';
-      console.log('incomeItems: ', incomeItems.length);
+      // console.log('incomeItems: ', incomeItems.length);
       incomeItems = document.querySelectorAll('.income-items');
+      this.depositHandler();
     }
 
     if (expensesItems.length > 1) {
@@ -300,7 +304,7 @@ class AppData {
       expensesItems[0].querySelector('.expenses-amount').value = '';
       expensesPlus.style.display = 'block';
       expensesItems = document.querySelectorAll('.expenses-items');
-      console.log('expensesItems: ', expensesItems.length);
+      // console.log('expensesItems: ', expensesItems.length);
     }
 
     incomePlus.style.display = 'block';
@@ -311,6 +315,9 @@ class AppData {
 
     start.style.display = 'block';
     cancel.style.display = 'none';
+    depositCheck.checked = false;
+    depositBank.style.display = 'none';
+    depositAmount.style.display = 'none';
 
     const unBlockInputs = () =>
       document
