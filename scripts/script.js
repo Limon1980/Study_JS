@@ -29,7 +29,7 @@ let expensesItems = document.querySelectorAll('.expenses-items'),
   expensesAmount = document.querySelector('.expenses-amount'),
   incomeTitle = document.querySelectorAll('.income-title')[1],
   incomeAmount = document.querySelector('.income-amount'),
-  incomeItems = document.querySelectorAll('.income-items');
+  incomeItems = document.getElementsByClassName('income-items');
 
 class AppData {
   constructor() {
@@ -132,7 +132,7 @@ class AppData {
     // incomeItems[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
     incomeItems[0].parentNode.append(cloneIncomeItem, incomePlus);
 
-    incomeItems = document.querySelectorAll('.income-items');
+    // incomeItems = document.querySelectorAll('.income-items');
 
     if (incomeItems.length === 3) {
       incomePlus.style.display = 'none';
@@ -151,7 +151,7 @@ class AppData {
     };
 
     expensesItems.forEach(count);
-    incomeItems.forEach(count);
+    [...incomeItems].forEach(count); // getElementByClassName без переопределения incomeItems в 135 строке
 
     for (const key in this.income) {
       this.incomeMonth += +this.income[key];
